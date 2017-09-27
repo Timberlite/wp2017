@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <style>
+      body{
+        background-image:url('http://i.imgur.com/9Pxbdj3.jpg');
+        background-repeat:no-repeat;
+        background-attachment:fixed;
+        background-position:center;
+        background-size:cover;        
+      }
+      #front{
+        position:absolute;
+        left:50%;
+        top:70px;
+        margin-left:-110px;
+        text-align:center;
+      }
+      #eyeball{
+        z-index:0;
+      }
+      #eye{
+        position:absolute;
+        left:50%;
+        top:146px;
+        margin-top:0px;
+        margin-left:0px;
+        z-index:1;
+      }
+    </style>
+    <title>Timberlite's Page</title>
+  </head>
+    <body>
+    <img src="http://i.imgur.com/3K3Pioo.png" alt="Eye" style="width:30px;height:30px;" id="eye">
+      <div id="front">
+        <img src="http://i.imgur.com/LYpQwMW.gif" alt="Portrait" style="width:180px;height:180px;" id="eyeball">
+        <font color="#5c4a3d" face="fantasy">
+          <h1>Welcome</h1>
+          <hr color="#5c4a3d"></hr>
+          <p>This is Timberlite's Personal Page.</p>
+          <p>Learn by NCKU UIDD Course 2017.</p>
+        </font>
+      </div>
+          <script>
+            var nor_X=0;
+            var nor_Y=0;
+            var unor_X;
+            var unor_Y;
+            var m_X;
+            var m_Y;
+            $(document).mousemove(function (e) {
+              m_X = e.pageX;
+              m_Y = e.pageY;
+              unor_X=m_X-window.outerWidth/2-15;
+              unor_Y=m_Y-161;
+              unor_offset=Math.sqrt(Math.pow(unor_X,2)+Math.pow(unor_Y,2));
+              if(unor_offset<=40){
+                nor_X=unor_X;
+                nor_Y=unor_Y;
+              }else{
+                nor_X=40*(unor_X/unor_offset);
+                nor_Y=40*(unor_Y/unor_offset);
+              }
+              $('#eye').css('margin-left',nor_X);
+              $('#eye').css('margin-top',nor_Y);
+            });
+          </script>
+    </body>
+</html>
+
